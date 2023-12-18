@@ -1,0 +1,27 @@
+{
+  "name":                       "runedefender",
+  "description":                "VPS",
+
+  "operator_user":              "ubuntu",
+
+  "vpn": {
+    "headscale": {
+      "version": "0.22.3",
+
+      "checksums": {
+        "deb_package": "2b45be5aa7b95c2512f57c83931ed3eb4f546fca5dfc771c7458a13392adb331"
+      }
+    }
+  },
+
+  "run_list": [
+    "recipe[server::customization]",
+
+    "recipe[server::ufw]",
+    "recipe[server::fail2ban]",
+
+    "recipe[dns::duck_dns]",
+
+    "recipe[vpn::headscale]"
+  ]
+}

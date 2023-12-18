@@ -1,0 +1,7 @@
+[Unit]
+Description=Duck DNS update
+
+[Service]
+Type=oneshot
+
+ExecStart=/var/duck-dns/duck.sh

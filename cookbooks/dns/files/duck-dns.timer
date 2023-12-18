@@ -1,0 +1,11 @@
+[Unit]
+Description=Duck DNS timer
+
+[Timer]
+OnActiveSec=300
+OnUnitActiveSec=300
+RandomizedDelaySec=60
+Persistent=true
+
+[Install]
+WantedBy=timers.target
