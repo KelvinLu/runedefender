@@ -19,6 +19,7 @@
 
     "recipe[server::ufw]",
     "recipe[server::fail2ban]",
+    "recipe[server::bmon]",
 
     "recipe[dns::duck_dns]",
 
