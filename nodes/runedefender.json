@@ -6,10 +6,10 @@
 
   "vpn": {
     "headscale": {
-      "version": "0.22.3",
+      "version": "0.27.0",
 
       "checksums": {
-        "deb_package": "2b45be5aa7b95c2512f57c83931ed3eb4f546fca5dfc771c7458a13392adb331"
+        "deb_package": "b9f1670062f94674782cd3e7682986df946ee2b6ae96ad91dfd1d0eb0ce7516e"
       }
     }
   },
