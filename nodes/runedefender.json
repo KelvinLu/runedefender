@@ -14,6 +14,16 @@
     }
   },
 
+  "dns": {
+    "ddclient": {
+      "version": "4.0.0",
+
+      "checksums": {
+        "tar_gz": "15c73d4b61e8e4974707379df1dbf15ab9f933835c6968947d2b56173388c6f0"
+      }
+    }
+  },
+
   "run_list": [
     "recipe[server::customization]",
 
@@ -21,7 +31,7 @@
     "recipe[server::fail2ban]",
     "recipe[server::bmon]",
 
-    "recipe[dns::duck_dns]",
+    "recipe[dns::ddclient]",
 
     "recipe[vpn::headscale]"
   ]
