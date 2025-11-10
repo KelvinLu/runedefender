@@ -32,6 +32,10 @@ ruby_block 'ensure configuration files exist' do
     unless File.exist?('/etc/headscale/hostname.txt') && !File.zero?('/etc/headscale/hostname.txt')
       raise 'Expected a URL (e.g.; "foo.duckdns.org") within /etc/headscale/hostname.txt'
     end
+
+    unless File.exist?('/etc/headscale/magicdns-base-domain.txt') && !File.zero?('/etc/headscale/magicdns-base-domain.txt')
+      raise 'Expected a URL (e.g.; "tailnet.foo.duckdns.org") within /etc/headscale/magicdns-base-domain.txt'
+    end
   end
 end
 
@@ -42,11 +46,12 @@ template '/etc/headscale/config.yaml' do
 
   variables lazy {
     hostname = File.read('/etc/headscale/hostname.txt').strip
+    base_domain = File.read('/etc/headscale/magicdns-base-domain.txt').strip
 
     acl_policy_path = '/etc/headscale/acl.hujson'
     acl_policy_path = '""' unless File.exist?(acl_policy_path) && File.file?(acl_policy_path)
 
-    { hostname: hostname, acl_policy_path: acl_policy_path }
+    { hostname: hostname, base_domain: base_domain, acl_policy_path: acl_policy_path }
   }
 
   mode '0640'
